@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { Header } from '../../header/header';
 import { FormsModule } from '@angular/forms';
+import { DeliveryApi } from '../../services/delivery-api';
 
 @Component({
   selector: 'app-track',
@@ -9,6 +10,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './track.css',
 })
 export class Track {
+  constructor(private deliveryApi:DeliveryApi){
+
+  }
   trackNumber = '';
   trackResult: any = signal(null);
   trackShipment(): void {
@@ -41,6 +45,15 @@ export class Track {
         {type: 'done', label: 'Вручен', date: '27.01.2026'}
       ]
     });
+
+    this.deliveryApi.getDeliveryInfo(numericValue).subscribe((response) => {
+            if ('error' in response) {
+                alert(response.error);
+                return;
+            }
+
+            this.trackResult.set(response);
+        });
   }
 
 }
