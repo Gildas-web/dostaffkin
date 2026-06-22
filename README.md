@@ -1,4 +1,4 @@
-# Here is a project for one who wants to start frontend development using angular 
+. Here is a project for one who wants to start frontend development using angular 
 # But put in mind that you need to possess good skills in Html, CSS, JavaScript and even typescript before yoyouru begin this project
 # As a beginner or learner looking at this project, don't worry take your time to study the project concepts and it shall help you in improving
 # through out your learning process.
